@@ -16,7 +16,7 @@ modelpath= os.path.join(here, 'mob_netmodel_saved.h5')
 def load_pred(image_inf):
     model2 = keras.models.load_model(modelpath, compile=False)
     #image = tf.keras.preprocessing.image.load_img(image_inf, target_size= (96, 96, 3))
-    image = ImageOps.fit(image_inf, target_size =(96, 96, 3))
+    image = ImageOps.fit(image_inf, size =(96, 96))
     input_arr = keras.preprocessing.image.img_to_array(image)
     input_arr = np.array([input_arr])  # Convert single image to a batch.
     predictions = model.predict(input_arr)

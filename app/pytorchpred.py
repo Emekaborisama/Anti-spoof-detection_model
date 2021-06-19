@@ -13,7 +13,7 @@ import skimage.exposure as ex
 
 import os
 here = os.path.dirname(__file__)
-modelpath = os.path.join(here, './model/module.pth')
+modelpath = os.path.join(here, 'module.pth')
 
 class Network(torch.nn.Module):
 
@@ -56,7 +56,7 @@ class Network(torch.nn.Module):
         X = self.lin(X)
         X = torch.nn.functional.elu(X, alpha=1.0, inplace=False)
         return X
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cpu")
 
 net = Network()
 AntiSpoofClassifier = Model(net, "adam", rmse, device)
@@ -96,10 +96,11 @@ def augmentation(images, flip_y, flip_x, brightness):
 
     return images
 
+map_location=torch.device('cpu')
 
-state_dict = torch.load(modelpath)
+state_dict = torch.load(modelpath, map_location)
 model3 = Network()
-model3.load_state_dict(state_dict)
+model3.load_state_dict(state_dict, map_location)
 
 def load_predict(image_path):
     image = io.imread(image_path)

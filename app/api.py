@@ -1,8 +1,7 @@
 from flask import Flask, request, jsonify, Response
 from flask import render_template, url_for, redirect, flash
 #from spacy import displacy
-from pytorchpred import load_predict
-from app.loc_extract import extractloc
+from app.pytorchpred import load_predict
 from flask_cors import CORS, cross_origin
 
 

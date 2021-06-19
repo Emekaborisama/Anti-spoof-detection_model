@@ -1,0 +1,12 @@
+name: resscvmodel
+services:
+  resscvmodel:
+    public: true
+    image: emekaboris/resscvmodelone:latest
+    build: .
+    replicas: 1
+    ports:
+      - 8080
+    resources:
+      cpu: 2000m
+      memory: 5Gi

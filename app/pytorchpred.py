@@ -121,4 +121,4 @@ def load_predict(image_path):
         print("real")
     elif preds == 1:
         print("pls retake the profile image")
-    print(f"real : {100*real/(real+fake):.3g}% , fake : {100*fake/(real+fake):.3g}%")
+    return(f"real : {100*real/(real+fake):.3g}% , fake : {100*fake/(real+fake):.3g}%")

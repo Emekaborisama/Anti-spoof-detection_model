@@ -7,9 +7,12 @@ import requests
 from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
 from gevent.pywsgi import WSGIServer
+from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__)
+cors = CORS(app)
+
 
 def endpoint1(image_path):
     url = "https://resscvmodel-emekaborisama.cloud.okteto.net/spoof_real_torch"
@@ -46,6 +49,3 @@ def upload():
         preds = endpoint1(file_path)
         return preds
     return None
-
-if __name__ == '__main__':
-      app.run(debug=True)

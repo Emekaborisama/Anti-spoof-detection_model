@@ -1,7 +1,7 @@
 import cv2 as cv
 import streamlit as st
 import numpy as np
-from app import load_pred
+#from app import load_pred
 from app import endpoint1
 
 st.title("Webcam Live Feed")

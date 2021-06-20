@@ -6,7 +6,7 @@ import json
 from PIL import Image, ImageOps
 import os
 here = os.path.dirname(__file__)
-
+import base64
 from tensorflow import keras
 import numpy as np
 np.random.seed(42)
@@ -27,6 +27,14 @@ def load_pred(image_inf):
         return("pls retake the profile image")
 
 
+
+def endpoint1(image_path):
+    url = "https://resscvmodel-emekaborisama.cloud.okteto.net/spoof_real_torch"
+    # Path to image fil
+    filess = {"img": open(image_path, "rb")}
+    results = requests.post(url, files=filess)
+    #print("time taken:", time.time() - starttime)
+    return(results.text)
 
 
 
@@ -51,14 +59,19 @@ hide_streamlit_style = """
             """
 
 
+
+
+
 input_image= st.file_uploader("upload image or using your camera")
 
 if input_image is not None:
     image = Image.open(input_image)
+    im1 = image.save("geeks.jpg")
     st.image(image, caption='Uploaded Image.', use_column_width=True)
+    image_path = "geeks.jpg"
 
 if st.button("Classify"):
-    tt = load_pred(image_inf = image)
+    tt = endpoint1(image_path = image_path)
     st.title("Prediction")
     st.markdown(tt)
 

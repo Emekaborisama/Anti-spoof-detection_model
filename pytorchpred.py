@@ -103,7 +103,7 @@ state_dict = torch.load(modelpath)
 model3 = Network()
 model3.load_state_dict(state_dict)
 
-def  load_predict(image_path):
+def load_predict(image_path):
     image = io.imread(image_path)
     image = sktransform.resize(image, (64, 64))
     image = np.expand_dims(image, 0)
@@ -122,4 +122,4 @@ def  load_predict(image_path):
         print("real")
     elif preds == 1:
         print("pls retake the profile image")
-    print(f"real : {100*real/(real+fake):.3g}% , fake : {100*fake/(real+fake):.3g}%")
+    return(f"real : {100*real/(real+fake):.3g}% , fake : {100*fake/(real+fake):.3g}%")

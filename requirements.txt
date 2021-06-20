@@ -1,7 +1,7 @@
 streamlit
 tensorflow-cpu
 haroun
-opencv-python
+opencv-python-headless
 tensorflow_addons==0.13.0
 torch
 numpy

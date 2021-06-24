@@ -1,4 +1,4 @@
-name: resscvmodel
+name: resscvwebpage
 image: okteto/python:3
 command: bash
 sync:

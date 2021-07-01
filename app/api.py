@@ -15,7 +15,7 @@ cors = CORS(app)
 
 
 def endpoint1(image_path):
-    url = "https://resscvmodelapi-emekaborisama.cloud.okteto.net/spoof_real_tensor1"
+    url = "https://resscvmodelapi-emekaborisama.cloud.okteto.net/spoof_real_torch"
     # Path to image fil
     
     filess = {"img": open(image_path, "rb")}

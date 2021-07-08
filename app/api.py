@@ -35,11 +35,10 @@ def crop_Casa(imagepath):
     for (x, y, w, h) in faces:
 	    cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)
 	    faces = img[y:y + h, x:x + w]
-	    cv2.imshow("img", faces)
+	    #cv2.imshow("img", faces)
 	    tt = cv2.imwrite('face.jpg', faces)
     
     return tt
-
 
 @app.route('/Image_Classification', methods=['GET'])
 def index():

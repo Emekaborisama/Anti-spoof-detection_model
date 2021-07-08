@@ -63,6 +63,6 @@ def upload():
 
         # Make prediction
         crop_Casa(file_path)
-        preds = endpoint1(file_path)
+        preds = endpoint1(file_path2)
         return preds
     return None

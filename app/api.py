@@ -15,7 +15,7 @@ cors = CORS(app)
 
 
 def endpoint1(image_path):
-    url = "https://resscvmodelapi-emekaborisama.cloud.okteto.net/spoof_real_torch"
+    url = "https://resscvmodelapi-emekaborisama.cloud.okteto.net/spoof_real_tensor1"
     # Path to image fil
     
     filess = {"img": open(image_path, "rb")}
@@ -36,9 +36,9 @@ def crop_Casa(imagepath):
 	    cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)
 	    faces = img[y:y + h, x:x + w]
 	    #cv2.imshow("img", faces)
-	    tt = cv2.imwrite('face.jpg', faces)
+	    cv2.imwrite('face.jpg', faces)
     
-    return tt
+    return
 
 @app.route('/Image_Classification', methods=['GET'])
 def index():

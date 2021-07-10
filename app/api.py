@@ -36,7 +36,7 @@ def crop_Casa(imagepath):
 	    cv2.rectangle(img, (x, y), (x+w, y+h), (0, 0, 255), 2)
 	    faces = img[y:y + h, x:x + w]
 	    #cv2.imshow("img", faces)
-	    cv2.imwrite('face.jpg', faces)
+	    cv2.imwrite('face.jpg', img)
     
     return
 
@@ -63,6 +63,6 @@ def upload():
 
         # Make prediction
         crop_Casa(file_path)
-        preds = endpoint1(file_path2)
+        preds = endpoint1(file_path)
         return preds
     return None
